@@ -3,9 +3,11 @@
 //
 
 import SwiftUI
-import SafariServices
 import StratixCore
 import XCloudAPI
+#if os(iOS)
+import SafariServices
+#endif
 
 struct SignInView: View {
     @Environment(SessionController.self) private var sessionController
@@ -46,14 +48,17 @@ struct SignInView: View {
             .tint(.green)
         }
         .padding(32)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 
-/// Shows the device code and opens the Microsoft sign-in page inside the app so the
-/// token polling keeps running in the foreground.
+/// Shows the device code and opens the Microsoft sign-in page. On iOS the page
+/// opens inside the app so token polling keeps running in the foreground; on
+/// macOS it opens in the default browser while the app keeps polling.
 struct DeviceCodeView: View {
     let info: DeviceCodeInfo
 
+    @Environment(\.openURL) private var openURL
     @State private var showBrowser = false
     @State private var didAutoOpen = false
 
@@ -82,14 +87,14 @@ struct DeviceCodeView: View {
 
             HStack(spacing: 12) {
                 Button {
-                    UIPasteboard.general.string = info.userCode
+                    Platform.copyToPasteboard(info.userCode)
                 } label: {
                     Label("Copy code", systemImage: "doc.on.doc")
                 }
                 .buttonStyle(.bordered)
 
                 Button {
-                    showBrowser = true
+                    openSignInPage()
                 } label: {
                     Label("Open Microsoft sign-in", systemImage: "safari")
                 }
@@ -107,20 +112,34 @@ struct DeviceCodeView: View {
             .padding(.top, 8)
         }
         .padding(32)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+#if os(iOS)
         .sheet(isPresented: $showBrowser) {
             if let signInURL {
                 SafariView(url: signInURL)
                     .ignoresSafeArea()
             }
         }
+#endif
         .onAppear {
             guard !didAutoOpen, signInURL != nil else { return }
             didAutoOpen = true
-            showBrowser = true
+            openSignInPage()
         }
+    }
+
+    private func openSignInPage() {
+#if os(iOS)
+        showBrowser = true
+#else
+        if let signInURL {
+            openURL(signInURL)
+        }
+#endif
     }
 }
 
+#if os(iOS)
 struct SafariView: UIViewControllerRepresentable {
     let url: URL
 
@@ -132,3 +151,4 @@ struct SafariView: UIViewControllerRepresentable {
 
     func updateUIViewController(_ uiViewController: SFSafariViewController, context: Context) {}
 }
+#endif

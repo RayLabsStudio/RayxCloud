@@ -9,9 +9,10 @@ import StreamingCore
 
 struct StreamView: View {
     let item: CloudLibraryItem
+    let onClose: () -> Void
 
     @Environment(StreamController.self) private var streamController
-    @Environment(\.dismiss) private var dismiss
+    @AppStorage("hud.enabled") private var hudEnabled = false
 
     @State private var bridge = WebRTCClientImpl()
     @State private var videoTrack: AnyObject?
@@ -43,16 +44,35 @@ struct StreamView: View {
                 launchPlaceholder
             }
 
+            if hudEnabled, lifecycle == .connected, let session {
+                VStack {
+                    Spacer()
+                    StreamHUD(stats: session.stats)
+                        .padding(.bottom, 14)
+                }
+                .allowsHitTesting(false)
+            }
+
             if showControls || lifecycle != .connected {
                 controls
             }
         }
         .persistentSystemOverlays(.hidden)
+#if os(iOS)
         .statusBarHidden(true)
+#endif
         .contentShape(Rectangle())
         .onTapGesture {
             toggleControls()
         }
+#if os(macOS)
+        .onExitCommand {
+            revealControls()
+        }
+        .onHover { hovering in
+            if hovering { revealControls() }
+        }
+#endif
         .task {
             await streamController.startCloudStream(titleId: TitleID(rawValue: item.titleId), bridge: bridge)
         }
@@ -73,7 +93,7 @@ struct StreamView: View {
 
     private var launchPlaceholder: some View {
         ZStack {
-            RemoteImage(urls: [item.heroImageURL, item.artURL, item.posterImageURL], maxPixelWidth: 1600) {
+            RemoteImage(urls: [item.heroImageURL, item.artURL, item.posterImageURL], maxPixelSize: 1920) {
                 Color.black
             }
             .overlay(Color.black.opacity(0.55))
@@ -92,15 +112,9 @@ struct StreamView: View {
 
     private var controls: some View {
         VStack {
-            HStack(alignment: .top) {
-                Button {
+            HStack(alignment: .top, spacing: 10) {
+                controlButton(symbol: "xmark", label: "Close stream") {
                     exitStream()
-                } label: {
-                    Image(systemName: "xmark")
-                        .font(.headline)
-                        .padding(12)
-                        .background(.black.opacity(0.6), in: Circle())
-                        .foregroundStyle(.white)
                 }
 
                 Spacer()
@@ -112,6 +126,26 @@ struct StreamView: View {
                         .padding(.horizontal, 12)
                         .padding(.vertical, 8)
                         .background(.black.opacity(0.6), in: Capsule())
+
+                    Spacer()
+
+                    controlButton(
+                        symbol: hudEnabled ? "gauge.with.dots.needle.67percent" : "gauge.with.dots.needle.0percent",
+                        label: hudEnabled ? "Hide performance" : "Show performance",
+                        tint: hudEnabled ? .green : .white
+                    ) {
+                        hudEnabled.toggle()
+                        scheduleControlsHide()
+                    }
+#if os(macOS)
+                    controlButton(
+                        symbol: Platform.isFullScreen ? "arrow.down.right.and.arrow.up.left" : "arrow.up.left.and.arrow.down.right",
+                        label: "Toggle full screen"
+                    ) {
+                        Platform.toggleFullScreen()
+                        scheduleControlsHide()
+                    }
+#endif
                 }
             }
             .padding(.horizontal, 28)
@@ -129,6 +163,19 @@ struct StreamView: View {
             }
         }
         .transition(.opacity)
+    }
+
+    private func controlButton(symbol: String, label: String, tint: Color = .white, action: @escaping () -> Void) -> some View {
+        Button(action: action) {
+            Image(systemName: symbol)
+                .font(.headline)
+                .frame(width: 20, height: 20)
+                .padding(12)
+                .background(.black.opacity(0.6), in: Circle())
+                .foregroundStyle(tint)
+        }
+        .buttonStyle(.plain)
+        .accessibilityLabel(label)
     }
 
     private var statusText: String {
@@ -162,7 +209,6 @@ struct StreamView: View {
         guard let session else { return }
         session.setDiagnosticsPollingEnabled(true)
         session.onVideoTrack = { track in
-            print("[StreamView] video track received: \(type(of: track))")
             Task { @MainActor in
                 videoTrack = track
             }
@@ -177,6 +223,14 @@ struct StreamView: View {
         if showControls {
             scheduleControlsHide()
         }
+    }
+
+    private func revealControls() {
+        guard lifecycle == .connected, !showControls else { return }
+        withAnimation(.easeInOut(duration: 0.2)) {
+            showControls = true
+        }
+        scheduleControlsHide()
     }
 
     private func scheduleControlsHide() {
@@ -198,7 +252,7 @@ struct StreamView: View {
             await streamController.stopStreaming()
             await streamController.exitStreamPriorityMode()
         }
-        dismiss()
+        onClose()
     }
 
     private func teardown() {

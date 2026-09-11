@@ -103,9 +103,12 @@ struct LibraryView: View {
             }
             .background(Color.black)
             .navigationTitle("Game Pass")
+#if os(iOS)
             .navigationBarTitleDisplayMode(.inline)
+            .toolbarBackground(.black, for: .navigationBar)
+#endif
             .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
+                ToolbarItem(placement: .primaryAction) {
                     Menu {
                         Button("Refresh library") {
                             Task { await libraryController.refresh(forceRefresh: true, reason: .manualUser) }
@@ -118,12 +121,21 @@ struct LibraryView: View {
                     }
                 }
             }
-            .toolbarBackground(.black, for: .navigationBar)
         }
         .tint(.green)
+#if os(iOS)
         .fullScreenCover(item: $selectedTitle) { item in
-            StreamView(item: item)
+            StreamView(item: item) { selectedTitle = nil }
         }
+#else
+        .overlay {
+            if let item = selectedTitle {
+                StreamView(item: item) { selectedTitle = nil }
+                    .transition(.opacity)
+            }
+        }
+        .frame(minWidth: 900, minHeight: 560)
+#endif
     }
 }
 
@@ -135,7 +147,10 @@ extension LibraryView {
                 Image(systemName: "magnifyingglass")
                     .foregroundStyle(.secondary)
                 TextField("Search games", text: $query)
+                    .textFieldStyle(.plain)
+#if os(iOS)
                     .textInputAutocapitalization(.never)
+#endif
                     .autocorrectionDisabled()
                     .submitLabel(.search)
                 if !query.isEmpty {
@@ -242,7 +257,7 @@ private struct GameTile: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {
-            RemoteImage(urls: [item.posterImageURL, item.artURL, item.heroImageURL], maxPixelWidth: 480) {
+            RemoteImage(urls: [item.posterImageURL, item.artURL, item.heroImageURL], maxPixelSize: 800) {
                 placeholder
             }
             .frame(maxWidth: .infinity)

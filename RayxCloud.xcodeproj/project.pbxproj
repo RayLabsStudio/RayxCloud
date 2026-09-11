@@ -9,27 +9,52 @@
 /* Begin PBXBuildFile section */
 		0145559C79F6956DE45265FE /* WebRTCClientImplRTCPeerConnectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1522BE64BA62A942E9913B /* WebRTCClientImplRTCPeerConnectionDelegate.swift */; };
 		060BDB23A4E6F613447E2503 /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C25550AC28186A53ABB31D /* VideoView.swift */; };
+		0E7905E26E003B45B4558E81 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5D91209603C54B4A3D7B79 /* LibraryView.swift */; };
+		1213A1FB10062D73C6CB7A24 /* WebRTCClientImplDataChannelDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE1CD074E1B57F7484C3FCA /* WebRTCClientImplDataChannelDelegateProxy.swift */; };
+		15C5BF20C34FE136BA34DBAE /* WebRTCClientImplBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0DF02253DD6D33C38501E4 /* WebRTCClientImplBridge.swift */; };
 		1807FC6865DE256B57909ED0 /* StreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A1C620D77A30F9D5DB9A46 /* StreamView.swift */; };
 		1D97014E6E887D6351B954FE /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5D91209603C54B4A3D7B79 /* LibraryView.swift */; };
+		1EF6E3EFF44AFE5971C53D7B /* WebRTCClientImplDataChannels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B9028057509857E0D9831D /* WebRTCClientImplDataChannels.swift */; };
 		26EAE0D43E40793E403E8F0E /* WebRTCClientImplStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0903933FF64A2B0033EFADFA /* WebRTCClientImplStats.swift */; };
+		30E6EB6DCD7ECE8C9BE357B3 /* WebRTCClientImplStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0903933FF64A2B0033EFADFA /* WebRTCClientImplStats.swift */; };
 		39B099BE39DA0FDBAA9F97B7 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB7DD373C3B59F0F0C880C9 /* SignInView.swift */; };
 		3B1007FD4843EC8EA28C342A /* WebRTC in Frameworks */ = {isa = PBXBuildFile; productRef = 62903BDEBF406CEBE2653BC1 /* WebRTC */; };
+		3BABA2F03AC7D7939513927B /* WebRTCClientStateSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA03633BE92A3F690B181DE7 /* WebRTCClientStateSupport.swift */; };
+		3EAB04F95631F1A160F42DB6 /* WebRTCClientImplCallbackRouting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C03A17DEF0933CF6C484E85 /* WebRTCClientImplCallbackRouting.swift */; };
+		449AF4AF95A87AC5D7E17801 /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC0394C00E8595CBEBEDB4D /* Platform.swift */; };
 		4DF05996A810F5E58A525AB3 /* DebugLogFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34552AA5A2BD50C65E1348A5 /* DebugLogFile.swift */; };
+		4E92378BFF330C4CB1214996 /* StreamHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2650E82F06E88DD61EFB8E9 /* StreamHUD.swift */; };
 		50B4F1263177A7DF3B67387D /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766886C6F84F05CEA687DBD3 /* RootView.swift */; };
 		510485D8BCAE212784190360 /* WebRTCClientImplBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0DF02253DD6D33C38501E4 /* WebRTCClientImplBridge.swift */; };
+		59C8F78B1104F1A1DFD95771 /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C25550AC28186A53ABB31D /* VideoView.swift */; };
 		6BEE369782F931FCB73800DE /* WebRTCClientStateSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA03633BE92A3F690B181DE7 /* WebRTCClientStateSupport.swift */; };
+		70DC0866127AF71543F9A5F1 /* WebRTCClientImplRTCPeerConnectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1522BE64BA62A942E9913B /* WebRTCClientImplRTCPeerConnectionDelegate.swift */; };
 		71F1F809466B741B39ADA634 /* WebRTCClientImplCallbackRouting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C03A17DEF0933CF6C484E85 /* WebRTCClientImplCallbackRouting.swift */; };
+		82EA4D62699BC0BA95D70F3A /* StreamHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2650E82F06E88DD61EFB8E9 /* StreamHUD.swift */; };
+		888E396F53E094838ADFC7DB /* WebRTCClientImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949B4D5393EFF25377946E09 /* WebRTCClientImpl.swift */; };
 		8ECD574D6FC6BF28196A1019 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38282EAB6A0F6CF893BD556F /* Assets.xcassets */; };
+		93AF1F12462C7908800CDF06 /* WebRTC in Frameworks */ = {isa = PBXBuildFile; productRef = D165E3E8751767972A66021C /* WebRTC */; };
+		966B932C625A7DCD7950268D /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC0394C00E8595CBEBEDB4D /* Platform.swift */; };
 		986FD10C806B5899EFFC4879 /* WebRTCClientImplAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D84224C09E8454A99D2FDB6 /* WebRTCClientImplAudio.swift */; };
+		9CDEC32A69A7D5C33BE790BF /* DebugLogFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34552AA5A2BD50C65E1348A5 /* DebugLogFile.swift */; };
 		A858408CF8A6C98EAC366BDC /* StratixCore in Frameworks */ = {isa = PBXBuildFile; productRef = B47A45638C1FB23A7B041AE1 /* StratixCore */; };
 		B73D66B0CA4AA23B4074FDE6 /* WebRTCClientImplDataChannels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B9028057509857E0D9831D /* WebRTCClientImplDataChannels.swift */; };
 		B7F38081C3E5EC838DC4E505 /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE79277630A13A3AF9C6DB64 /* RemoteImage.swift */; };
+		C36AB536374A382AFAB86104 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38282EAB6A0F6CF893BD556F /* Assets.xcassets */; };
+		CA78CEDC4A880A683BCF47E9 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB7DD373C3B59F0F0C880C9 /* SignInView.swift */; };
+		CE513F4D0867FED3EEE0E244 /* RayxCloudApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE00B7C78FEBD68F1A77EE49 /* RayxCloudApp.swift */; };
+		DC73B5AF5EC765CB1BDBF161 /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE79277630A13A3AF9C6DB64 /* RemoteImage.swift */; };
 		DD62D77F6AC2002222B1EA1E /* WebRTCClientImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949B4D5393EFF25377946E09 /* WebRTCClientImpl.swift */; };
+		E0951A88532F563A1C20BC7C /* WebRTCClientImplAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D84224C09E8454A99D2FDB6 /* WebRTCClientImplAudio.swift */; };
+		E5AE53BA361CDE047CE18ADF /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766886C6F84F05CEA687DBD3 /* RootView.swift */; };
 		ECCA845DD51759395A00985F /* RayxCloudApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE00B7C78FEBD68F1A77EE49 /* RayxCloudApp.swift */; };
+		ED5AE0A279D6189B3F1EFACF /* StreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A1C620D77A30F9D5DB9A46 /* StreamView.swift */; };
 		EED13E5191C641379F9FFC65 /* WebRTCClientImplDataChannelDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE1CD074E1B57F7484C3FCA /* WebRTCClientImplDataChannelDelegateProxy.swift */; };
+		F2E92D96B41B057EBEFE4B76 /* StratixCore in Frameworks */ = {isa = PBXBuildFile; productRef = C8164A8F8B666F19FA9CC1DA /* StratixCore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		082E9BD3631C051B664EC444 /* RayxCloud-macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "RayxCloud-macOS.entitlements"; sourceTree = "<group>"; };
 		0903933FF64A2B0033EFADFA /* WebRTCClientImplStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebRTCClientImplStats.swift; sourceTree = "<group>"; };
 		1C03A17DEF0933CF6C484E85 /* WebRTCClientImplCallbackRouting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebRTCClientImplCallbackRouting.swift; sourceTree = "<group>"; };
 		1D1522BE64BA62A942E9913B /* WebRTCClientImplRTCPeerConnectionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebRTCClientImplRTCPeerConnectionDelegate.swift; sourceTree = "<group>"; };
@@ -37,17 +62,20 @@
 		38282EAB6A0F6CF893BD556F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		43EC7271EFD52018406293A6 /* RayxCloud.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = RayxCloud.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BE1CD074E1B57F7484C3FCA /* WebRTCClientImplDataChannelDelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebRTCClientImplDataChannelDelegateProxy.swift; sourceTree = "<group>"; };
+		5EC0394C00E8595CBEBEDB4D /* Platform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
 		766886C6F84F05CEA687DBD3 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		7D5D91209603C54B4A3D7B79 /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
 		7D84224C09E8454A99D2FDB6 /* WebRTCClientImplAudio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebRTCClientImplAudio.swift; sourceTree = "<group>"; };
 		80C25550AC28186A53ABB31D /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
 		90B9028057509857E0D9831D /* WebRTCClientImplDataChannels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebRTCClientImplDataChannels.swift; sourceTree = "<group>"; };
 		949B4D5393EFF25377946E09 /* WebRTCClientImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebRTCClientImpl.swift; sourceTree = "<group>"; };
+		96F41CF56C5739FD4E45BB68 /* RayxCloudMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RayxCloudMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A17F4EE7EECE0241F600FE44 /* StratixCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = StratixCore; path = Packages/StratixCore; sourceTree = SOURCE_ROOT; };
 		A4A1C620D77A30F9D5DB9A46 /* StreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamView.swift; sourceTree = "<group>"; };
 		AA03633BE92A3F690B181DE7 /* WebRTCClientStateSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebRTCClientStateSupport.swift; sourceTree = "<group>"; };
 		AA0DF02253DD6D33C38501E4 /* WebRTCClientImplBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebRTCClientImplBridge.swift; sourceTree = "<group>"; };
 		AE79277630A13A3AF9C6DB64 /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
+		C2650E82F06E88DD61EFB8E9 /* StreamHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamHUD.swift; sourceTree = "<group>"; };
 		DE00B7C78FEBD68F1A77EE49 /* RayxCloudApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RayxCloudApp.swift; sourceTree = "<group>"; };
 		EBB7DD373C3B59F0F0C880C9 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -59,6 +87,15 @@
 			files = (
 				3B1007FD4843EC8EA28C342A /* WebRTC in Frameworks */,
 				A858408CF8A6C98EAC366BDC /* StratixCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FE908C585102F7463EB2E19C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93AF1F12462C7908800CDF06 /* WebRTC in Frameworks */,
+				F2E92D96B41B057EBEFE4B76 /* StratixCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				43EC7271EFD52018406293A6 /* RayxCloud.app */,
+				96F41CF56C5739FD4E45BB68 /* RayxCloudMac.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -119,10 +157,13 @@
 			children = (
 				34552AA5A2BD50C65E1348A5 /* DebugLogFile.swift */,
 				7D5D91209603C54B4A3D7B79 /* LibraryView.swift */,
+				5EC0394C00E8595CBEBEDB4D /* Platform.swift */,
+				082E9BD3631C051B664EC444 /* RayxCloud-macOS.entitlements */,
 				DE00B7C78FEBD68F1A77EE49 /* RayxCloudApp.swift */,
 				AE79277630A13A3AF9C6DB64 /* RemoteImage.swift */,
 				766886C6F84F05CEA687DBD3 /* RootView.swift */,
 				EBB7DD373C3B59F0F0C880C9 /* SignInView.swift */,
+				C2650E82F06E88DD61EFB8E9 /* StreamHUD.swift */,
 				A4A1C620D77A30F9D5DB9A46 /* StreamView.swift */,
 				80C25550AC28186A53ABB31D /* VideoView.swift */,
 				19448E886EDA11E8E36D1486 /* Resources */,
@@ -155,6 +196,27 @@
 			productReference = 43EC7271EFD52018406293A6 /* RayxCloud.app */;
 			productType = "com.apple.product-type.application";
 		};
+		CDA6C11FFE0F200E13774318 /* RayxCloudMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2D61D045A10295488968D15D /* Build configuration list for PBXNativeTarget "RayxCloudMac" */;
+			buildPhases = (
+				4D738CDDD2F89A67DD7B76CE /* Sources */,
+				8F2949144B08867E8EAA73C2 /* Resources */,
+				FE908C585102F7463EB2E19C /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RayxCloudMac;
+			packageProductDependencies = (
+				D165E3E8751767972A66021C /* WebRTC */,
+				C8164A8F8B666F19FA9CC1DA /* StratixCore */,
+			);
+			productName = RayxCloudMac;
+			productReference = 96F41CF56C5739FD4E45BB68 /* RayxCloudMac.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -165,6 +227,10 @@
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					C207EF96C6A4DF34962CB6C6 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+					CDA6C11FFE0F200E13774318 = {
 						DevelopmentTeam = "";
 						ProvisioningStyle = Automatic;
 					};
@@ -189,11 +255,20 @@
 			projectRoot = "";
 			targets = (
 				C207EF96C6A4DF34962CB6C6 /* RayxCloud */,
+				CDA6C11FFE0F200E13774318 /* RayxCloudMac */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		8F2949144B08867E8EAA73C2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C36AB536374A382AFAB86104 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E6EEE536F05CF9D795799DF5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -205,16 +280,44 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		4D738CDDD2F89A67DD7B76CE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9CDEC32A69A7D5C33BE790BF /* DebugLogFile.swift in Sources */,
+				0E7905E26E003B45B4558E81 /* LibraryView.swift in Sources */,
+				966B932C625A7DCD7950268D /* Platform.swift in Sources */,
+				CE513F4D0867FED3EEE0E244 /* RayxCloudApp.swift in Sources */,
+				DC73B5AF5EC765CB1BDBF161 /* RemoteImage.swift in Sources */,
+				E5AE53BA361CDE047CE18ADF /* RootView.swift in Sources */,
+				CA78CEDC4A880A683BCF47E9 /* SignInView.swift in Sources */,
+				4E92378BFF330C4CB1214996 /* StreamHUD.swift in Sources */,
+				ED5AE0A279D6189B3F1EFACF /* StreamView.swift in Sources */,
+				59C8F78B1104F1A1DFD95771 /* VideoView.swift in Sources */,
+				888E396F53E094838ADFC7DB /* WebRTCClientImpl.swift in Sources */,
+				E0951A88532F563A1C20BC7C /* WebRTCClientImplAudio.swift in Sources */,
+				15C5BF20C34FE136BA34DBAE /* WebRTCClientImplBridge.swift in Sources */,
+				3EAB04F95631F1A160F42DB6 /* WebRTCClientImplCallbackRouting.swift in Sources */,
+				1213A1FB10062D73C6CB7A24 /* WebRTCClientImplDataChannelDelegateProxy.swift in Sources */,
+				1EF6E3EFF44AFE5971C53D7B /* WebRTCClientImplDataChannels.swift in Sources */,
+				70DC0866127AF71543F9A5F1 /* WebRTCClientImplRTCPeerConnectionDelegate.swift in Sources */,
+				30E6EB6DCD7ECE8C9BE357B3 /* WebRTCClientImplStats.swift in Sources */,
+				3BABA2F03AC7D7939513927B /* WebRTCClientStateSupport.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		54AF1A4192AF275107BA2115 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				4DF05996A810F5E58A525AB3 /* DebugLogFile.swift in Sources */,
 				1D97014E6E887D6351B954FE /* LibraryView.swift in Sources */,
+				449AF4AF95A87AC5D7E17801 /* Platform.swift in Sources */,
 				ECCA845DD51759395A00985F /* RayxCloudApp.swift in Sources */,
 				B7F38081C3E5EC838DC4E505 /* RemoteImage.swift in Sources */,
 				50B4F1263177A7DF3B67387D /* RootView.swift in Sources */,
 				39B099BE39DA0FDBAA9F97B7 /* SignInView.swift in Sources */,
+				82EA4D62699BC0BA95D70F3A /* StreamHUD.swift in Sources */,
 				1807FC6865DE256B57909ED0 /* StreamView.swift in Sources */,
 				060BDB23A4E6F613447E2503 /* VideoView.swift in Sources */,
 				DD62D77F6AC2002222B1EA1E /* WebRTCClientImpl.swift in Sources */,
@@ -258,6 +361,33 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
+		};
+		27C021AC8D264375B2DF4331 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "App/RayxCloud-macOS.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				INFOPLIST_FILE = "App/Info-macOS.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				OTHER_SWIFT_FLAGS = "$(inherited) -DWEBRTC_AVAILABLE";
+				PRODUCT_BUNDLE_IDENTIFIER = com.raylabsstudio.rayxcloud;
+				PRODUCT_NAME = RayxCloud;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
 		};
 		5584F0071CC726AED30A50D4 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -308,10 +438,35 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		D9EF2D44E90D65A432DC96C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "App/RayxCloud-macOS.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				INFOPLIST_FILE = "App/Info-macOS.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				OTHER_SWIFT_FLAGS = "$(inherited) -DWEBRTC_AVAILABLE";
+				PRODUCT_BUNDLE_IDENTIFIER = com.raylabsstudio.rayxcloud;
+				PRODUCT_NAME = RayxCloud;
+				SDKROOT = macosx;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
 			};
 			name = Release;
 		};
@@ -399,7 +554,6 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -414,6 +568,15 @@
 			buildConfigurations = (
 				DA1475DDE159FAF032A08C57 /* Debug */,
 				24C2531C0C1CC7B2CD6BB784 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		2D61D045A10295488968D15D /* Build configuration list for PBXNativeTarget "RayxCloudMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27C021AC8D264375B2DF4331 /* Debug */,
+				D9EF2D44E90D65A432DC96C9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
@@ -456,6 +619,15 @@
 		B47A45638C1FB23A7B041AE1 /* StratixCore */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = StratixCore;
+		};
+		C8164A8F8B666F19FA9CC1DA /* StratixCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = StratixCore;
+		};
+		D165E3E8751767972A66021C /* WebRTC */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F04562E67509524E21DC2376 /* XCRemoteSwiftPackageReference "WebRTC" */;
+			productName = WebRTC;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

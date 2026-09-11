@@ -1,6 +1,7 @@
 // VideoView.swift
-// Video surface backed by AVSampleBufferDisplayLayer. Decoded NV12 frames from
-// VideoToolbox are wrapped in CMSampleBuffers and displayed immediately.
+// Video surface backed by AVSampleBufferDisplayLayer on both iOS and macOS.
+// Decoded NV12 frames from VideoToolbox are wrapped in CMSampleBuffers and
+// displayed immediately.
 //
 
 import SwiftUI
@@ -10,6 +11,7 @@ import CoreMedia
 import WebRTC
 #endif
 
+#if os(iOS)
 struct VideoView: UIViewRepresentable {
     let videoTrack: AnyObject?
 
@@ -23,40 +25,12 @@ struct VideoView: UIViewRepresentable {
         context.coordinator.attach(videoTrack, to: uiView)
     }
 
-    static func dismantleUIView(_ uiView: SampleBufferVideoView, coordinator: Coordinator) {
+    static func dismantleUIView(_ uiView: SampleBufferVideoView, coordinator: VideoViewCoordinator) {
         coordinator.attach(nil, to: uiView)
     }
 
-    func makeCoordinator() -> Coordinator {
-        Coordinator()
-    }
-
-    @MainActor
-    final class Coordinator {
-#if WEBRTC_AVAILABLE
-        private var attachedTrack: RTCVideoTrack?
-        private var renderer: SampleBufferRenderer?
-
-        func attach(_ track: AnyObject?, to view: SampleBufferVideoView) {
-            let next = track as? RTCVideoTrack
-            guard next !== attachedTrack else { return }
-            if let attachedTrack, let renderer {
-                attachedTrack.remove(renderer)
-            }
-            attachedTrack = next
-            renderer = nil
-            guard let next else {
-                print("[VideoView] detached track")
-                return
-            }
-            let renderer = SampleBufferRenderer(layer: view.displayLayer)
-            self.renderer = renderer
-            print("[VideoView] attaching track id=\(next.trackId) enabled=\(next.isEnabled) viewBounds=\(view.bounds.size)")
-            next.add(renderer)
-        }
-#else
-        func attach(_ track: AnyObject?, to view: SampleBufferVideoView) {}
-#endif
+    func makeCoordinator() -> VideoViewCoordinator {
+        VideoViewCoordinator()
     }
 }
 
@@ -66,8 +40,6 @@ final class SampleBufferVideoView: UIView {
     var displayLayer: AVSampleBufferDisplayLayer {
         layer as! AVSampleBufferDisplayLayer
     }
-
-    private var layoutLogCount = 0
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -79,14 +51,76 @@ final class SampleBufferVideoView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) is not supported")
     }
+}
+#else
+struct VideoView: NSViewRepresentable {
+    let videoTrack: AnyObject?
 
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        if layoutLogCount < 3 {
-            layoutLogCount += 1
-            print("[VideoView] layout bounds=\(bounds.size) window=\(window != nil)")
-        }
+    func makeNSView(context: Context) -> SampleBufferVideoView {
+        let view = SampleBufferVideoView()
+        context.coordinator.attach(videoTrack, to: view)
+        return view
     }
+
+    func updateNSView(_ nsView: SampleBufferVideoView, context: Context) {
+        context.coordinator.attach(videoTrack, to: nsView)
+    }
+
+    static func dismantleNSView(_ nsView: SampleBufferVideoView, coordinator: VideoViewCoordinator) {
+        coordinator.attach(nil, to: nsView)
+    }
+
+    func makeCoordinator() -> VideoViewCoordinator {
+        VideoViewCoordinator()
+    }
+}
+
+final class SampleBufferVideoView: NSView {
+    var displayLayer: AVSampleBufferDisplayLayer {
+        layer as! AVSampleBufferDisplayLayer
+    }
+
+    override init(frame: NSRect) {
+        super.init(frame: frame)
+        wantsLayer = true
+        layerContentsRedrawPolicy = .never
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) is not supported")
+    }
+
+    override func makeBackingLayer() -> CALayer {
+        let displayLayer = AVSampleBufferDisplayLayer()
+        displayLayer.videoGravity = .resizeAspect
+        displayLayer.backgroundColor = NSColor.black.cgColor
+        return displayLayer
+    }
+}
+#endif
+
+@MainActor
+final class VideoViewCoordinator {
+#if WEBRTC_AVAILABLE
+    private var attachedTrack: RTCVideoTrack?
+    private var renderer: SampleBufferRenderer?
+
+    func attach(_ track: AnyObject?, to view: SampleBufferVideoView) {
+        let next = track as? RTCVideoTrack
+        guard next !== attachedTrack else { return }
+        if let attachedTrack, let renderer {
+            attachedTrack.remove(renderer)
+        }
+        attachedTrack = next
+        renderer = nil
+        guard let next else { return }
+        let renderer = SampleBufferRenderer(layer: view.displayLayer)
+        self.renderer = renderer
+        next.add(renderer)
+    }
+#else
+    func attach(_ track: AnyObject?, to view: SampleBufferVideoView) {}
+#endif
 }
 
 #if WEBRTC_AVAILABLE
@@ -96,7 +130,6 @@ final class SampleBufferRenderer: NSObject, RTCVideoRenderer, @unchecked Sendabl
     private let videoRenderer: AVSampleBufferVideoRenderer
     private var formatDescription: CMVideoFormatDescription?
     private var formatDimensions = CMVideoDimensions(width: 0, height: 0)
-    private var frameCount = 0
     private var failureCount = 0
 
     init(layer: AVSampleBufferDisplayLayer) {
@@ -104,22 +137,11 @@ final class SampleBufferRenderer: NSObject, RTCVideoRenderer, @unchecked Sendabl
         super.init()
     }
 
-    func setSize(_ size: CGSize) {
-        print("[VideoView] source size \(size)")
-    }
+    func setSize(_ size: CGSize) {}
 
     func renderFrame(_ frame: RTCVideoFrame?) {
-        guard let frame else { return }
-        frameCount += 1
-
-        guard let cvBuffer = frame.buffer as? RTCCVPixelBuffer else {
-            if frameCount <= 3 {
-                print("[VideoView] unsupported frame buffer \(type(of: frame.buffer))")
-            }
-            return
-        }
+        guard let frame, let cvBuffer = frame.buffer as? RTCCVPixelBuffer else { return }
         let pixelBuffer = cvBuffer.pixelBuffer
-
         guard let format = formatDescription(for: pixelBuffer) else { return }
 
         var timing = CMSampleTimingInfo(
@@ -157,12 +179,7 @@ final class SampleBufferRenderer: NSObject, RTCVideoRenderer, @unchecked Sendabl
             videoRenderer.flush()
         }
         videoRenderer.enqueue(sampleBuffer)
-
-        if frameCount <= 3 || frameCount % 600 == 0 {
-            print("[VideoView] enqueued frame #\(frameCount) \(frame.width)x\(frame.height) rendererStatus=\(videoRenderer.status.rawValue)")
-        }
     }
-
 
     private func formatDescription(for pixelBuffer: CVPixelBuffer) -> CMVideoFormatDescription? {
         let width = Int32(CVPixelBufferGetWidth(pixelBuffer))

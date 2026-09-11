@@ -32,5 +32,8 @@ struct RayxCloudApp: App {
                     Task { await coordinator.handleAppDidBecomeActive() }
                 }
         }
+#if os(macOS)
+        .defaultSize(width: 1280, height: 800)
+#endif
     }
 }

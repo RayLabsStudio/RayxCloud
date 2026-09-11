@@ -22,6 +22,7 @@ targets:
       - path: App
         excludes:
           - "Info.plist"
+          - "Info-macOS.plist"
     dependencies:
       - package: WebRTC
         product: WebRTC
@@ -72,11 +73,72 @@ targets:
         Debug:
           SWIFT_ACTIVE_COMPILATION_CONDITIONS: "$(inherited) DEBUG"
 
+  RayxCloudMac:
+    type: application
+    platform: macOS
+    deploymentTarget: "14.0"
+    sources:
+      - path: App
+        excludes:
+          - "Info.plist"
+          - "Info-macOS.plist"
+    dependencies:
+      - package: WebRTC
+        product: WebRTC
+      - package: StratixCore
+        product: StratixCore
+    info:
+      path: App/Info-macOS.plist
+      properties:
+        CFBundleDisplayName: RayxCloud
+        CFBundleShortVersionString: "0.1.0"
+        CFBundleVersion: "1"
+        LSApplicationCategoryType: public.app-category.games
+        NSHumanReadableCopyright: GPL-3.0. Unofficial, not affiliated with Microsoft.
+        NSMicrophoneUsageDescription: RayxCloud needs audio device access so WebRTC can play game audio. Your microphone is never sent to Xbox.
+        NSLocalNetworkUsageDescription: RayxCloud connects to your Xbox on the local network for Remote Play.
+        NSBonjourServices:
+          - _webrtc._udp
+        GCSupportsGameMode: true
+        GCSupportsControllerUserInteraction: true
+    entitlements:
+      path: App/RayxCloud-macOS.entitlements
+      properties:
+        com.apple.security.app-sandbox: true
+        com.apple.security.network.client: true
+        com.apple.security.device.audio-input: true
+        com.apple.security.device.bluetooth: true
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.raylabsstudio.rayxcloud
+        PRODUCT_NAME: RayxCloud
+        DEVELOPMENT_TEAM: ""
+        CODE_SIGN_STYLE: Automatic
+        ENABLE_HARDENED_RUNTIME: true
+        SWIFT_VERSION: "6.0"
+        SWIFT_STRICT_CONCURRENCY: complete
+        OTHER_SWIFT_FLAGS: "$(inherited) -DWEBRTC_AVAILABLE"
+        ENABLE_USER_SCRIPT_SANDBOXING: false
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        COMBINE_HIDPI_IMAGES: true
+      configs:
+        Debug:
+          SWIFT_ACTIVE_COMPILATION_CONDITIONS: "$(inherited) DEBUG"
+
 schemes:
   RayxCloud:
     build:
       targets:
         RayxCloud: all
+    run:
+      config: Debug
+    archive:
+      config: Release
+  RayxCloudMac:
+    build:
+      targets:
+        RayxCloudMac: all
     run:
       config: Debug
     archive:
