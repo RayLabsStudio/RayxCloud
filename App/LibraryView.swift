@@ -21,16 +21,16 @@ struct LibraryView: View {
         Array(libraryController.itemsByTitleID.values)
     }
 
-    /// Union of catalog capability names, used to build the filter menu.
-    private var availableFeatures: [String] {
+    /// Catalog capabilities present in the library, normalized and grouped for the menu.
+    private var featureGroups: [FeatureGroup] {
         var names = Set<String>()
         for item in allItems {
             for attribute in item.attributes {
-                let name = attribute.localizedName.trimmingCharacters(in: .whitespacesAndNewlines)
+                let name = LibraryFilter.normalizedFeature(attribute.localizedName)
                 if !name.isEmpty { names.insert(name) }
             }
         }
-        return names.sorted { $0.localizedCaseInsensitiveCompare($1) == .orderedAscending }
+        return FeatureGroup.group(names)
     }
 
     private var items: [CloudLibraryItem] {
@@ -181,23 +181,43 @@ extension LibraryView {
                 Toggle("Recently played", isOn: $filter.recentOnly)
                 Toggle("Touch controls", isOn: $filter.touchOnly)
             }
-            if !availableFeatures.isEmpty {
-                Section("Feature") {
-                    Picker("Feature", selection: $filter.feature) {
-                        Text("Any").tag(String?.none)
-                        ForEach(availableFeatures, id: \.self) { feature in
-                            Text(feature).tag(String?.some(feature))
+
+            Section("Players") {
+                Picker("Players", selection: $filter.minPlayers) {
+                    Text("Any").tag(Int?.none)
+                    Text("2 or more").tag(Int?.some(2))
+                    Text("4 or more").tag(Int?.some(4))
+                    Text("8 or more").tag(Int?.some(8))
+                    Text("16 or more").tag(Int?.some(16))
+                }
+                .pickerStyle(.inline)
+            }
+
+            Section("Feature") {
+                if filter.feature != nil {
+                    Button("Any feature") { filter.feature = nil }
+                }
+                ForEach(featureGroups) { group in
+                    Menu(group.title) {
+                        Picker(group.title, selection: $filter.feature) {
+                            ForEach(group.features, id: \.self) { feature in
+                                Text(feature).tag(String?.some(feature))
+                            }
                         }
+                        .pickerStyle(.inline)
                     }
                 }
             }
+
             Section("Sort") {
                 Picker("Sort", selection: $filter.sort) {
                     ForEach(LibraryFilter.Sort.allCases) { sort in
                         Text(sort.title).tag(sort)
                     }
                 }
+                .pickerStyle(.inline)
             }
+
             if filter.isActive {
                 Section {
                     Button("Clear filters", role: .destructive) {
@@ -210,6 +230,39 @@ extension LibraryView {
         }
         .iconMenuStyle()
         .accessibilityLabel("Filter games")
+    }
+}
+
+/// A named bucket of normalized catalog features for the filter menu.
+struct FeatureGroup: Identifiable {
+    let title: String
+    let features: [String]
+
+    var id: String { title }
+
+    static func group(_ names: Set<String>) -> [FeatureGroup] {
+        var together: [String] = []
+        var picture: [String] = []
+        var other: [String] = []
+        for name in names {
+            let lower = name.lowercased()
+            if lower.contains("co-op") || lower.contains("coop") || lower.contains("multiplayer")
+                || lower.contains("cross-") || lower.contains("cross platform") || lower.contains("single player") {
+                together.append(name)
+            } else if lower.contains("4k") || lower.contains("hdr") || lower.contains("dolby") || lower.contains("dts")
+                || lower.contains("spatial") || lower.contains("fps") || lower.contains("ray tracing")
+                || lower.contains("optimized") || lower.contains("refresh") || lower.contains("1080") || lower.contains("120") {
+                picture.append(name)
+            } else {
+                other.append(name)
+            }
+        }
+        let sort: (String, String) -> Bool = { $0.localizedCaseInsensitiveCompare($1) == .orderedAscending }
+        return [
+            FeatureGroup(title: "Play together", features: together.sorted(by: sort)),
+            FeatureGroup(title: "Picture and sound", features: picture.sorted(by: sort)),
+            FeatureGroup(title: "More", features: other.sorted(by: sort))
+        ].filter { !$0.features.isEmpty }
     }
 }
 
@@ -232,10 +285,11 @@ struct LibraryFilter: Equatable {
     var recentOnly = false
     var touchOnly = false
     var feature: String?
+    var minPlayers: Int?
     var sort: Sort = .recentFirst
 
     var isActive: Bool {
-        recentOnly || touchOnly || feature != nil || sort != .recentFirst
+        recentOnly || touchOnly || feature != nil || minPlayers != nil || sort != .recentFirst
     }
 
     func matches(_ item: CloudLibraryItem) -> Bool {
@@ -243,10 +297,37 @@ struct LibraryFilter: Equatable {
         if touchOnly, !item.supportedInputTypes.contains(where: { $0.localizedCaseInsensitiveContains("touch") }) {
             return false
         }
-        if let feature, !item.attributes.contains(where: { $0.localizedName == feature }) {
+        if let feature,
+           !item.attributes.contains(where: { Self.normalizedFeature($0.localizedName) == feature }) {
+            return false
+        }
+        if let minPlayers, Self.maxPlayers(of: item) < minPlayers {
             return false
         }
         return true
+    }
+
+    /// "Online co-op (2-12)" becomes "Online co-op" so player-count variants collapse into one entry.
+    static func normalizedFeature(_ localizedName: String) -> String {
+        var name = localizedName
+        if let range = name.range(of: #"\s*\([^)]*\)\s*$"#, options: .regularExpression) {
+            name.removeSubrange(range)
+        }
+        return name.trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+
+    /// Largest player count advertised by any multiplayer or co-op attribute. Single-player titles return 1.
+    static func maxPlayers(of item: CloudLibraryItem) -> Int {
+        var best = 1
+        for attribute in item.attributes {
+            guard let range = attribute.localizedName.range(of: #"\((\d+)(?:\s*-\s*(\d+))?\)"#, options: .regularExpression) else { continue }
+            let inside = attribute.localizedName[range].dropFirst().dropLast()
+            let numbers = inside.split(whereSeparator: { !$0.isNumber }).compactMap { Int($0) }
+            if let top = numbers.max() {
+                best = max(best, top)
+            }
+        }
+        return best
     }
 }
 
