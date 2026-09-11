@@ -341,6 +341,10 @@ public actor MicrosoftAuthService {
                 continue
             } catch AuthError.deviceCodeExpired {
                 throw AuthError.deviceCodeExpired
+            } catch let error as URLError {
+                // Transient network failure (app briefly suspended, Wi-Fi handoff). Keep polling.
+                print("[Auth] device code poll network error, retrying: \(error.code.rawValue)")
+                continue
             }
         }
         throw AuthError.deviceCodeExpired

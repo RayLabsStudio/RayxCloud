@@ -437,9 +437,9 @@ public final class InputController {
     }
 
     private func configureControllerSystemGestureHandling(_ controller: GCController) {
-#if os(tvOS)
-        guard #available(tvOS 14.0, *) else { return }
-
+#if os(tvOS) || os(iOS)
+        // Keep Guide/Menu/B chords with the game instead of the system overlay
+        // (tvOS app switcher, iOS 26 Apple Games overlay).
         let profile = controller.physicalInputProfile
         var disabledCount = 0
 
@@ -452,7 +452,7 @@ public final class InputController {
         }
 
         if disabledCount > 0 {
-            logger.info("Disabled tvOS system gestures for \(disabledCount) controller element(s): \(controller.vendorName ?? "Unknown")")
+            logger.info("Disabled system gestures for \(disabledCount) controller element(s): \(controller.vendorName ?? "Unknown")")
         }
 #else
         _ = controller

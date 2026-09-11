@@ -1,0 +1,463 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0145559C79F6956DE45265FE /* WebRTCClientImplRTCPeerConnectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1522BE64BA62A942E9913B /* WebRTCClientImplRTCPeerConnectionDelegate.swift */; };
+		060BDB23A4E6F613447E2503 /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C25550AC28186A53ABB31D /* VideoView.swift */; };
+		1807FC6865DE256B57909ED0 /* StreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A1C620D77A30F9D5DB9A46 /* StreamView.swift */; };
+		1D97014E6E887D6351B954FE /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5D91209603C54B4A3D7B79 /* LibraryView.swift */; };
+		26EAE0D43E40793E403E8F0E /* WebRTCClientImplStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0903933FF64A2B0033EFADFA /* WebRTCClientImplStats.swift */; };
+		39B099BE39DA0FDBAA9F97B7 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB7DD373C3B59F0F0C880C9 /* SignInView.swift */; };
+		3B1007FD4843EC8EA28C342A /* WebRTC in Frameworks */ = {isa = PBXBuildFile; productRef = 62903BDEBF406CEBE2653BC1 /* WebRTC */; };
+		4DF05996A810F5E58A525AB3 /* DebugLogFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34552AA5A2BD50C65E1348A5 /* DebugLogFile.swift */; };
+		50B4F1263177A7DF3B67387D /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766886C6F84F05CEA687DBD3 /* RootView.swift */; };
+		510485D8BCAE212784190360 /* WebRTCClientImplBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0DF02253DD6D33C38501E4 /* WebRTCClientImplBridge.swift */; };
+		6BEE369782F931FCB73800DE /* WebRTCClientStateSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA03633BE92A3F690B181DE7 /* WebRTCClientStateSupport.swift */; };
+		71F1F809466B741B39ADA634 /* WebRTCClientImplCallbackRouting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C03A17DEF0933CF6C484E85 /* WebRTCClientImplCallbackRouting.swift */; };
+		8ECD574D6FC6BF28196A1019 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38282EAB6A0F6CF893BD556F /* Assets.xcassets */; };
+		986FD10C806B5899EFFC4879 /* WebRTCClientImplAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D84224C09E8454A99D2FDB6 /* WebRTCClientImplAudio.swift */; };
+		A858408CF8A6C98EAC366BDC /* StratixCore in Frameworks */ = {isa = PBXBuildFile; productRef = B47A45638C1FB23A7B041AE1 /* StratixCore */; };
+		B73D66B0CA4AA23B4074FDE6 /* WebRTCClientImplDataChannels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B9028057509857E0D9831D /* WebRTCClientImplDataChannels.swift */; };
+		B7F38081C3E5EC838DC4E505 /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE79277630A13A3AF9C6DB64 /* RemoteImage.swift */; };
+		DD62D77F6AC2002222B1EA1E /* WebRTCClientImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949B4D5393EFF25377946E09 /* WebRTCClientImpl.swift */; };
+		ECCA845DD51759395A00985F /* RayxCloudApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE00B7C78FEBD68F1A77EE49 /* RayxCloudApp.swift */; };
+		EED13E5191C641379F9FFC65 /* WebRTCClientImplDataChannelDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE1CD074E1B57F7484C3FCA /* WebRTCClientImplDataChannelDelegateProxy.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0903933FF64A2B0033EFADFA /* WebRTCClientImplStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebRTCClientImplStats.swift; sourceTree = "<group>"; };
+		1C03A17DEF0933CF6C484E85 /* WebRTCClientImplCallbackRouting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebRTCClientImplCallbackRouting.swift; sourceTree = "<group>"; };
+		1D1522BE64BA62A942E9913B /* WebRTCClientImplRTCPeerConnectionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebRTCClientImplRTCPeerConnectionDelegate.swift; sourceTree = "<group>"; };
+		34552AA5A2BD50C65E1348A5 /* DebugLogFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugLogFile.swift; sourceTree = "<group>"; };
+		38282EAB6A0F6CF893BD556F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		43EC7271EFD52018406293A6 /* RayxCloud.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = RayxCloud.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BE1CD074E1B57F7484C3FCA /* WebRTCClientImplDataChannelDelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebRTCClientImplDataChannelDelegateProxy.swift; sourceTree = "<group>"; };
+		766886C6F84F05CEA687DBD3 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		7D5D91209603C54B4A3D7B79 /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
+		7D84224C09E8454A99D2FDB6 /* WebRTCClientImplAudio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebRTCClientImplAudio.swift; sourceTree = "<group>"; };
+		80C25550AC28186A53ABB31D /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
+		90B9028057509857E0D9831D /* WebRTCClientImplDataChannels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebRTCClientImplDataChannels.swift; sourceTree = "<group>"; };
+		949B4D5393EFF25377946E09 /* WebRTCClientImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebRTCClientImpl.swift; sourceTree = "<group>"; };
+		A17F4EE7EECE0241F600FE44 /* StratixCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = StratixCore; path = Packages/StratixCore; sourceTree = SOURCE_ROOT; };
+		A4A1C620D77A30F9D5DB9A46 /* StreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamView.swift; sourceTree = "<group>"; };
+		AA03633BE92A3F690B181DE7 /* WebRTCClientStateSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebRTCClientStateSupport.swift; sourceTree = "<group>"; };
+		AA0DF02253DD6D33C38501E4 /* WebRTCClientImplBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebRTCClientImplBridge.swift; sourceTree = "<group>"; };
+		AE79277630A13A3AF9C6DB64 /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
+		DE00B7C78FEBD68F1A77EE49 /* RayxCloudApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RayxCloudApp.swift; sourceTree = "<group>"; };
+		EBB7DD373C3B59F0F0C880C9 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5C1359A49DF3B7FC9C680EF6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B1007FD4843EC8EA28C342A /* WebRTC in Frameworks */,
+				A858408CF8A6C98EAC366BDC /* StratixCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		19448E886EDA11E8E36D1486 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				38282EAB6A0F6CF893BD556F /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		1AD9EC92034E465F3B8DE1C0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				43EC7271EFD52018406293A6 /* RayxCloud.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		348934E627728178A5A14C06 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				A17F4EE7EECE0241F600FE44 /* StratixCore */,
+			);
+			path = Packages;
+			sourceTree = "<group>";
+		};
+		8D4EC23B494FB6B9900CFD33 /* WebRTC */ = {
+			isa = PBXGroup;
+			children = (
+				949B4D5393EFF25377946E09 /* WebRTCClientImpl.swift */,
+				7D84224C09E8454A99D2FDB6 /* WebRTCClientImplAudio.swift */,
+				AA0DF02253DD6D33C38501E4 /* WebRTCClientImplBridge.swift */,
+				1C03A17DEF0933CF6C484E85 /* WebRTCClientImplCallbackRouting.swift */,
+				5BE1CD074E1B57F7484C3FCA /* WebRTCClientImplDataChannelDelegateProxy.swift */,
+				90B9028057509857E0D9831D /* WebRTCClientImplDataChannels.swift */,
+				1D1522BE64BA62A942E9913B /* WebRTCClientImplRTCPeerConnectionDelegate.swift */,
+				0903933FF64A2B0033EFADFA /* WebRTCClientImplStats.swift */,
+				AA03633BE92A3F690B181DE7 /* WebRTCClientStateSupport.swift */,
+			);
+			path = WebRTC;
+			sourceTree = "<group>";
+		};
+		EEE2AF3EB99C62729C0CADF0 = {
+			isa = PBXGroup;
+			children = (
+				F802E42EA062E11465884F52 /* App */,
+				348934E627728178A5A14C06 /* Packages */,
+				1AD9EC92034E465F3B8DE1C0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F802E42EA062E11465884F52 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				34552AA5A2BD50C65E1348A5 /* DebugLogFile.swift */,
+				7D5D91209603C54B4A3D7B79 /* LibraryView.swift */,
+				DE00B7C78FEBD68F1A77EE49 /* RayxCloudApp.swift */,
+				AE79277630A13A3AF9C6DB64 /* RemoteImage.swift */,
+				766886C6F84F05CEA687DBD3 /* RootView.swift */,
+				EBB7DD373C3B59F0F0C880C9 /* SignInView.swift */,
+				A4A1C620D77A30F9D5DB9A46 /* StreamView.swift */,
+				80C25550AC28186A53ABB31D /* VideoView.swift */,
+				19448E886EDA11E8E36D1486 /* Resources */,
+				8D4EC23B494FB6B9900CFD33 /* WebRTC */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C207EF96C6A4DF34962CB6C6 /* RayxCloud */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 254B54DB9248C204C6889A40 /* Build configuration list for PBXNativeTarget "RayxCloud" */;
+			buildPhases = (
+				54AF1A4192AF275107BA2115 /* Sources */,
+				E6EEE536F05CF9D795799DF5 /* Resources */,
+				5C1359A49DF3B7FC9C680EF6 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RayxCloud;
+			packageProductDependencies = (
+				62903BDEBF406CEBE2653BC1 /* WebRTC */,
+				B47A45638C1FB23A7B041AE1 /* StratixCore */,
+			);
+			productName = RayxCloud;
+			productReference = 43EC7271EFD52018406293A6 /* RayxCloud.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		36FCE8E9AE042BB822A02C9B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					C207EF96C6A4DF34962CB6C6 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 3BF8C7BF421D606F83AA0799 /* Build configuration list for PBXProject "RayxCloud" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = EEE2AF3EB99C62729C0CADF0;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				F04562E67509524E21DC2376 /* XCRemoteSwiftPackageReference "WebRTC" */,
+				3D3E2B84181EF093735BA448 /* XCLocalSwiftPackageReference "Packages/StratixCore" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 1AD9EC92034E465F3B8DE1C0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C207EF96C6A4DF34962CB6C6 /* RayxCloud */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E6EEE536F05CF9D795799DF5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8ECD574D6FC6BF28196A1019 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		54AF1A4192AF275107BA2115 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DF05996A810F5E58A525AB3 /* DebugLogFile.swift in Sources */,
+				1D97014E6E887D6351B954FE /* LibraryView.swift in Sources */,
+				ECCA845DD51759395A00985F /* RayxCloudApp.swift in Sources */,
+				B7F38081C3E5EC838DC4E505 /* RemoteImage.swift in Sources */,
+				50B4F1263177A7DF3B67387D /* RootView.swift in Sources */,
+				39B099BE39DA0FDBAA9F97B7 /* SignInView.swift in Sources */,
+				1807FC6865DE256B57909ED0 /* StreamView.swift in Sources */,
+				060BDB23A4E6F613447E2503 /* VideoView.swift in Sources */,
+				DD62D77F6AC2002222B1EA1E /* WebRTCClientImpl.swift in Sources */,
+				986FD10C806B5899EFFC4879 /* WebRTCClientImplAudio.swift in Sources */,
+				510485D8BCAE212784190360 /* WebRTCClientImplBridge.swift in Sources */,
+				71F1F809466B741B39ADA634 /* WebRTCClientImplCallbackRouting.swift in Sources */,
+				EED13E5191C641379F9FFC65 /* WebRTCClientImplDataChannelDelegateProxy.swift in Sources */,
+				B73D66B0CA4AA23B4074FDE6 /* WebRTCClientImplDataChannels.swift in Sources */,
+				0145559C79F6956DE45265FE /* WebRTCClientImplRTCPeerConnectionDelegate.swift in Sources */,
+				26EAE0D43E40793E403E8F0E /* WebRTCClientImplStats.swift in Sources */,
+				6BEE369782F931FCB73800DE /* WebRTCClientStateSupport.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		24C2531C0C1CC7B2CD6BB784 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				INFOPLIST_FILE = App/Info.plist;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -DWEBRTC_AVAILABLE";
+				PRODUCT_BUNDLE_IDENTIFIER = com.raylabsstudio.rayxcloud;
+				PRODUCT_NAME = RayxCloud;
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		5584F0071CC726AED30A50D4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		DA1475DDE159FAF032A08C57 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				INFOPLIST_FILE = App/Info.plist;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -DWEBRTC_AVAILABLE";
+				PRODUCT_BUNDLE_IDENTIFIER = com.raylabsstudio.rayxcloud;
+				PRODUCT_NAME = RayxCloud;
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EC3DD9C7DC022628133C0617 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		254B54DB9248C204C6889A40 /* Build configuration list for PBXNativeTarget "RayxCloud" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA1475DDE159FAF032A08C57 /* Debug */,
+				24C2531C0C1CC7B2CD6BB784 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		3BF8C7BF421D606F83AA0799 /* Build configuration list for PBXProject "RayxCloud" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC3DD9C7DC022628133C0617 /* Debug */,
+				5584F0071CC726AED30A50D4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		3D3E2B84181EF093735BA448 /* XCLocalSwiftPackageReference "Packages/StratixCore" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/StratixCore;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F04562E67509524E21DC2376 /* XCRemoteSwiftPackageReference "WebRTC" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/stasel/WebRTC";
+			requirement = {
+				kind = exactVersion;
+				version = 152.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		62903BDEBF406CEBE2653BC1 /* WebRTC */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F04562E67509524E21DC2376 /* XCRemoteSwiftPackageReference "WebRTC" */;
+			productName = WebRTC;
+		};
+		B47A45638C1FB23A7B041AE1 /* StratixCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = StratixCore;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 36FCE8E9AE042BB822A02C9B /* Project object */;
+}

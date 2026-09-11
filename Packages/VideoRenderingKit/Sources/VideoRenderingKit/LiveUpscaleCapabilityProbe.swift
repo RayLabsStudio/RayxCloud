@@ -25,7 +25,7 @@ public struct LiveUpscaleCapabilityProbe: UpscaleCapabilityProbing {
 
     public func supportsMetal4FXSpatial(device: any MTLDevice) -> Bool {
         #if canImport(MetalFX)
-        if #available(tvOS 26, macOS 26, *) {
+        if #available(tvOS 26, macOS 26, iOS 26, *) {
             let supported = MTLFXSpatialScalerDescriptor.supportsMetal4FX(device)
             log.debug("Metal4FX spatial supported: \(supported)")
             return supported
@@ -41,7 +41,7 @@ public struct LiveUpscaleCapabilityProbe: UpscaleCapabilityProbing {
 
     public func vtSuperResolutionScaleFactors(sourceW: Int, sourceH: Int) -> [Float] {
 #if !targetEnvironment(simulator)
-        if #available(tvOS 18, macOS 26, *) {
+        if #available(tvOS 18, macOS 26, iOS 26, *) {
             guard VTLowLatencySuperResolutionScalerConfiguration.isSupported else {
                 log.debug("LLSR: not supported on this device")
                 return []
@@ -63,7 +63,7 @@ public struct LiveUpscaleCapabilityProbe: UpscaleCapabilityProbing {
 
     public func supportsVTFrameInterpolation(sourceW: Int, sourceH: Int) -> Bool {
 #if !targetEnvironment(simulator)
-        if #available(tvOS 18, macOS 26, *) {
+        if #available(tvOS 18, macOS 26, iOS 26, *) {
             guard VTLowLatencyFrameInterpolationConfiguration.isSupported else {
                 log.debug("LLFI: not supported on this device")
                 return false

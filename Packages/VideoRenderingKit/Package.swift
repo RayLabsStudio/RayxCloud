@@ -3,7 +3,7 @@ import PackageDescription
 
 let package = Package(
     name: "VideoRenderingKit",
-    platforms: [.tvOS(.v26), .macOS(.v14)],
+    platforms: [.tvOS(.v26), .macOS(.v14), .iOS(.v17)],
     products: [
         .library(name: "VideoRenderingKit", targets: ["VideoRenderingKit"])
     ],
