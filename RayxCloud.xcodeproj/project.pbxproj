@@ -31,6 +31,7 @@
 		70DC0866127AF71543F9A5F1 /* WebRTCClientImplRTCPeerConnectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1522BE64BA62A942E9913B /* WebRTCClientImplRTCPeerConnectionDelegate.swift */; };
 		71F1F809466B741B39ADA634 /* WebRTCClientImplCallbackRouting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C03A17DEF0933CF6C484E85 /* WebRTCClientImplCallbackRouting.swift */; };
 		78C694712BD257D36A4D7E5E /* GlassStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96D9E360F611E973B4F4093 /* GlassStyle.swift */; };
+		7CE2F2A59A3F093E5129D7CE /* GameTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E7EB61E0E76225FC2DDC83 /* GameTile.swift */; };
 		82EA4D62699BC0BA95D70F3A /* StreamHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2650E82F06E88DD61EFB8E9 /* StreamHUD.swift */; };
 		888E396F53E094838ADFC7DB /* WebRTCClientImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949B4D5393EFF25377946E09 /* WebRTCClientImpl.swift */; };
 		8ECD574D6FC6BF28196A1019 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38282EAB6A0F6CF893BD556F /* Assets.xcassets */; };
@@ -40,12 +41,15 @@
 		9CDEC32A69A7D5C33BE790BF /* DebugLogFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34552AA5A2BD50C65E1348A5 /* DebugLogFile.swift */; };
 		A24FE48A7F4AA3B1D14089BF /* GlassStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96D9E360F611E973B4F4093 /* GlassStyle.swift */; };
 		A858408CF8A6C98EAC366BDC /* StratixCore in Frameworks */ = {isa = PBXBuildFile; productRef = B47A45638C1FB23A7B041AE1 /* StratixCore */; };
+		ACD96A55C577E448441F8BDB /* GameTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E7EB61E0E76225FC2DDC83 /* GameTile.swift */; };
 		B73D66B0CA4AA23B4074FDE6 /* WebRTCClientImplDataChannels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B9028057509857E0D9831D /* WebRTCClientImplDataChannels.swift */; };
 		B7F38081C3E5EC838DC4E505 /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE79277630A13A3AF9C6DB64 /* RemoteImage.swift */; };
+		C17926E2544F2F763243C7C2 /* HomeShelvesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA205AEC2662CCEBD061502A /* HomeShelvesView.swift */; };
 		C36AB536374A382AFAB86104 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38282EAB6A0F6CF893BD556F /* Assets.xcassets */; };
 		CA78CEDC4A880A683BCF47E9 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB7DD373C3B59F0F0C880C9 /* SignInView.swift */; };
 		CE513F4D0867FED3EEE0E244 /* RayxCloudApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE00B7C78FEBD68F1A77EE49 /* RayxCloudApp.swift */; };
 		DC73B5AF5EC765CB1BDBF161 /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE79277630A13A3AF9C6DB64 /* RemoteImage.swift */; };
+		DD5645E6B4D4FDE26D5D73CF /* HomeShelvesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA205AEC2662CCEBD061502A /* HomeShelvesView.swift */; };
 		DD62D77F6AC2002222B1EA1E /* WebRTCClientImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949B4D5393EFF25377946E09 /* WebRTCClientImpl.swift */; };
 		E0951A88532F563A1C20BC7C /* WebRTCClientImplAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D84224C09E8454A99D2FDB6 /* WebRTCClientImplAudio.swift */; };
 		E5AE53BA361CDE047CE18ADF /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766886C6F84F05CEA687DBD3 /* RootView.swift */; };
@@ -78,9 +82,11 @@
 		AA0DF02253DD6D33C38501E4 /* WebRTCClientImplBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebRTCClientImplBridge.swift; sourceTree = "<group>"; };
 		AE79277630A13A3AF9C6DB64 /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
 		C2650E82F06E88DD61EFB8E9 /* StreamHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamHUD.swift; sourceTree = "<group>"; };
+		CA205AEC2662CCEBD061502A /* HomeShelvesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeShelvesView.swift; sourceTree = "<group>"; };
 		DE00B7C78FEBD68F1A77EE49 /* RayxCloudApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RayxCloudApp.swift; sourceTree = "<group>"; };
 		E96D9E360F611E973B4F4093 /* GlassStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassStyle.swift; sourceTree = "<group>"; };
 		EBB7DD373C3B59F0F0C880C9 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		F5E7EB61E0E76225FC2DDC83 /* GameTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,7 +165,9 @@
 			isa = PBXGroup;
 			children = (
 				34552AA5A2BD50C65E1348A5 /* DebugLogFile.swift */,
+				F5E7EB61E0E76225FC2DDC83 /* GameTile.swift */,
 				E96D9E360F611E973B4F4093 /* GlassStyle.swift */,
+				CA205AEC2662CCEBD061502A /* HomeShelvesView.swift */,
 				7D5D91209603C54B4A3D7B79 /* LibraryView.swift */,
 				5EC0394C00E8595CBEBEDB4D /* Platform.swift */,
 				082E9BD3631C051B664EC444 /* RayxCloud-macOS.entitlements */,
@@ -289,7 +297,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9CDEC32A69A7D5C33BE790BF /* DebugLogFile.swift in Sources */,
+				7CE2F2A59A3F093E5129D7CE /* GameTile.swift in Sources */,
 				78C694712BD257D36A4D7E5E /* GlassStyle.swift in Sources */,
+				C17926E2544F2F763243C7C2 /* HomeShelvesView.swift in Sources */,
 				0E7905E26E003B45B4558E81 /* LibraryView.swift in Sources */,
 				966B932C625A7DCD7950268D /* Platform.swift in Sources */,
 				CE513F4D0867FED3EEE0E244 /* RayxCloudApp.swift in Sources */,
@@ -316,7 +326,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DF05996A810F5E58A525AB3 /* DebugLogFile.swift in Sources */,
+				ACD96A55C577E448441F8BDB /* GameTile.swift in Sources */,
 				A24FE48A7F4AA3B1D14089BF /* GlassStyle.swift in Sources */,
+				DD5645E6B4D4FDE26D5D73CF /* HomeShelvesView.swift in Sources */,
 				1D97014E6E887D6351B954FE /* LibraryView.swift in Sources */,
 				449AF4AF95A87AC5D7E17801 /* Platform.swift in Sources */,
 				ECCA845DD51759395A00985F /* RayxCloudApp.swift in Sources */,

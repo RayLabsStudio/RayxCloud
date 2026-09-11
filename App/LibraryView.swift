@@ -14,11 +14,40 @@ struct LibraryView: View {
     @State private var query = ""
     @State private var selectedTitle: CloudLibraryItem?
     @State private var filter = LibraryFilter()
+    @State private var activeShelf: GameShelf?
 #if os(macOS)
     private var windowState: MacWindowState { MacWindowState.shared }
 #endif
 
+#if os(macOS)
+    private let columns = [GridItem(.adaptive(minimum: 150, maximum: 190), spacing: 16)]
+    private let shelfTileWidth: CGFloat = 170
+#else
     private let columns = [GridItem(.adaptive(minimum: 120, maximum: 160), spacing: 12)]
+    private let shelfTileWidth: CGFloat = 132
+#endif
+
+    private var isBrowsingHome: Bool {
+        query.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty && !filter.isActive && activeShelf == nil
+    }
+
+    /// Shelves shown on the home surface: what you played, then the rows Xbox serves for discovery.
+    private var shelves: [GameShelf] {
+        var result: [GameShelf] = []
+        let recent = libraryController.sections.first(where: { $0.id == "mru" })?.items
+            ?? allItems.filter(\.isInMRU)
+        if !recent.isEmpty {
+            result.append(GameShelf(id: "mru", title: "Jump back in", items: recent))
+        }
+        for row in libraryController.homeMerchandising?.rows ?? [] where !row.items.isEmpty {
+            result.append(GameShelf(id: row.alias, title: row.label, items: row.items))
+        }
+        return result
+    }
+
+    private var sortedAllItems: [CloudLibraryItem] {
+        allItems.sorted { $0.name.localizedCaseInsensitiveCompare($1.name) == .orderedAscending }
+    }
 
     private var allItems: [CloudLibraryItem] {
         Array(libraryController.itemsByTitleID.values)
@@ -38,7 +67,8 @@ struct LibraryView: View {
 
     private var items: [CloudLibraryItem] {
         let trimmedQuery = query.trimmingCharacters(in: .whitespacesAndNewlines)
-        let filtered = allItems.filter { item in
+        let source = activeShelf?.items ?? allItems
+        let filtered = source.filter { item in
             if !trimmedQuery.isEmpty, !item.name.localizedCaseInsensitiveContains(trimmedQuery) {
                 return false
             }
@@ -79,18 +109,22 @@ struct LibraryView: View {
                     }
                 } else {
                     ScrollView {
-                        if items.isEmpty {
+                        if isBrowsingHome {
+                            HomeShelvesView(
+                                shelves: shelves,
+                                allItems: sortedAllItems,
+                                tileWidth: shelfTileWidth,
+                                columns: columns,
+                                onSelect: { selectedTitle = $0 },
+                                onShowAll: { activeShelf = $0 }
+                            )
+                        } else if items.isEmpty {
                             ContentUnavailableView.search(text: query)
                                 .padding(.top, 60)
                         } else {
                             LazyVGrid(columns: columns, spacing: 16) {
                                 ForEach(items) { item in
-                                    Button {
-                                        selectedTitle = item
-                                    } label: {
-                                        GameTile(item: item)
-                                    }
-                                    .buttonStyle(.plain)
+                                    GameTile(item: item) { selectedTitle = item }
                                 }
                             }
                             .padding(16)
@@ -137,6 +171,19 @@ extension LibraryView {
     /// Search field with the filter button on its right.
     private var searchAndFilterBar: some View {
         HStack(spacing: 10) {
+            if let activeShelf {
+                Button {
+                    self.activeShelf = nil
+                } label: {
+                    RoundIcon(symbol: "chevron.left")
+                }
+                .buttonStyle(.plain)
+                .accessibilityLabel("Back to home")
+                Text(activeShelf.title)
+                    .font(.headline)
+                    .foregroundStyle(.white)
+                    .lineLimit(1)
+            }
             HStack(spacing: 8) {
                 Image(systemName: "magnifyingglass")
                     .foregroundStyle(.secondary)
@@ -346,35 +393,5 @@ struct LibraryFilter: Equatable {
             }
         }
         return best
-    }
-}
-
-private struct GameTile: View {
-    let item: CloudLibraryItem
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: 6) {
-            RemoteImage(urls: [item.posterImageURL, item.artURL, item.heroImageURL], maxPixelSize: 800) {
-                placeholder
-            }
-            .frame(maxWidth: .infinity)
-            .aspectRatio(3 / 4, contentMode: .fit)
-            .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
-
-            Text(item.name)
-                .font(.caption)
-                .foregroundStyle(.white)
-                .lineLimit(2)
-                .frame(maxWidth: .infinity, alignment: .leading)
-        }
-    }
-
-    private var placeholder: some View {
-        Rectangle()
-            .fill(Color.white.opacity(0.08))
-            .overlay(
-                Image(systemName: "gamecontroller")
-                    .foregroundStyle(.white.opacity(0.4))
-            )
     }
 }
