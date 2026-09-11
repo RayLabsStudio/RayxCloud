@@ -10,11 +10,10 @@ You build it yourself with Xcode and install it on your own device with your own
   <img src="Docs/Screenshots/mac-home.png" alt="Mac home screen with Jump back in, Buy and Stream, and Recently Added shelves" width="100%">
 </p>
 <p>
-  <img src="Docs/Screenshots/mac-launching.png" alt="Mac launching Forza Horizon 6 full screen" width="49%">
-  <img src="Docs/Screenshots/launching.png" alt="iPhone launching Forza Horizon 6" width="49%">
+  <img src="Docs/Screenshots/iphone-landscape.png" alt="iPhone in landscape showing the Jump back in and Recently Added shelves" width="100%">
 </p>
 <p>
-  <img src="Docs/Screenshots/library.png" alt="iPhone Game Pass library grid with search and filter" width="49%">
+  <img src="Docs/Screenshots/iphone-home.png" alt="iPhone in portrait with search, filter, and account in one bar above the shelves" width="45%">
 </p>
 
 ## Disclaimer
