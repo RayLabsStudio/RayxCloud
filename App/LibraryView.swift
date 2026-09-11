@@ -105,19 +105,15 @@ struct LibraryView: View {
                 }
             }
             .background(Color.black)
-            .navigationTitle("Game Pass")
 #if os(iOS)
+            .navigationTitle("Game Pass")
             .navigationBarTitleDisplayMode(.inline)
             .toolbarBackground(.black, for: .navigationBar)
-#endif
-#if os(iOS)
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
                     profileMenu
                 }
             }
-#else
-            .toolbar(.hidden, for: .windowToolbar)
 #endif
         }
         .tint(.green)
