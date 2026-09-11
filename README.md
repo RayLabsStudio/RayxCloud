@@ -10,10 +10,8 @@ You build it yourself with Xcode and install it on your own device with your own
   <img src="Docs/Screenshots/mac-home.png" alt="Mac home screen with Jump back in, Buy and Stream, and Recently Added shelves" width="100%">
 </p>
 <p>
-  <img src="Docs/Screenshots/iphone-landscape.png" alt="iPhone in landscape showing the Jump back in and Recently Added shelves" width="100%">
-</p>
-<p>
-  <img src="Docs/Screenshots/iphone-home.png" alt="iPhone in portrait with search, filter, and account in one bar above the shelves" width="45%">
+  <img src="Docs/Screenshots/iphone-home.png" alt="iPhone in portrait with search, filter, and account in one bar above the shelves" width="17%">
+  <img src="Docs/Screenshots/iphone-landscape.png" alt="iPhone in landscape showing the Jump back in and Recently Added shelves" width="82%">
 </p>
 
 ## Disclaimer
