@@ -96,7 +96,7 @@ struct StreamView: View {
 
     private var launchPlaceholder: some View {
         ZStack {
-            RemoteImage(urls: [item.heroImageURL, item.artURL, item.posterImageURL], maxPixelSize: 1920) {
+            RemoteImage(urls: [item.heroImageURL, item.artURL, item.posterImageURL], kind: .hero, maxPixelSize: 1920) {
                 Color.black
             }
             .overlay(Color.black.opacity(0.55))

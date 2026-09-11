@@ -6,16 +6,19 @@
 
 import SwiftUI
 import ImageIO
+import StratixCore
 
 struct RemoteImage<Placeholder: View>: View {
     let urls: [URL]
+    var kind: ArtworkKind = .poster
     var maxPixelSize: CGFloat = 800
     @ViewBuilder var placeholder: () -> Placeholder
 
     @State private var image: CGImage?
 
-    init(urls: [URL?], maxPixelSize: CGFloat = 800, @ViewBuilder placeholder: @escaping () -> Placeholder) {
+    init(urls: [URL?], kind: ArtworkKind = .poster, maxPixelSize: CGFloat = 800, @ViewBuilder placeholder: @escaping () -> Placeholder) {
         self.urls = urls.compactMap { $0 }
+        self.kind = kind
         self.maxPixelSize = maxPixelSize
         self.placeholder = placeholder
     }
@@ -42,7 +45,7 @@ struct RemoteImage<Placeholder: View>: View {
                 image = cached
                 return
             }
-            if let loaded = await ImageCache.shared.fetch(url, maxPixelSize: maxPixelSize) {
+            if let loaded = await ImageCache.shared.fetch(url, kind: kind, maxPixelSize: maxPixelSize) {
                 image = loaded
                 return
             }
@@ -66,20 +69,19 @@ final class ImageCache {
         cache.object(forKey: url as NSURL)
     }
 
-    /// Fetches and decodes once per URL. A view being cancelled mid-scroll does not
-    /// cancel the download, so the next appearance gets the finished image.
-    func fetch(_ url: URL, maxPixelSize: CGFloat) async -> CGImage? {
+    /// Fetches through Stratix's ArtworkPipeline, which keeps a pruned disk cache that the
+    /// library prefetcher already fills, then decodes once per URL. A view being cancelled
+    /// mid-scroll does not cancel the download, so the next appearance gets the finished image.
+    func fetch(_ url: URL, kind: ArtworkKind, maxPixelSize: CGFloat) async -> CGImage? {
         if let existing = inFlight[url] {
             return await existing.value
         }
         let task = Task<CGImage?, Never>.detached(priority: .utility) {
-            var request = URLRequest(url: url)
-            request.cachePolicy = .returnCacheDataElseLoad
-            guard let (data, response) = try? await URLSession.shared.data(for: request),
-                  let http = response as? HTTPURLResponse, (200..<300).contains(http.statusCode) else {
+            let request = ArtworkRequest(url: url, kind: kind, priority: .high)
+            guard let response = try? await ArtworkPipeline.shared.data(for: request) else {
                 return nil
             }
-            return Self.decode(data, maxPixelSize: maxPixelSize)
+            return Self.decode(response.data, maxPixelSize: maxPixelSize)
         }
         inFlight[url] = task
         let result = await task.value
