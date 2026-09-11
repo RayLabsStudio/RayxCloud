@@ -20,6 +20,9 @@ struct StreamView: View {
     @State private var showControls = true
     @State private var hideControlsTask: Task<Void, Never>?
     @State private var isExiting = false
+#if os(macOS)
+    private var windowState: MacWindowState { MacWindowState.shared }
+#endif
 
     private var session: (any StreamingSessionFacade)? {
         streamController.streamingSession
@@ -139,7 +142,7 @@ struct StreamView: View {
                     }
 #if os(macOS)
                     controlButton(
-                        symbol: Platform.isFullScreen ? "arrow.down.right.and.arrow.up.left" : "arrow.up.left.and.arrow.down.right",
+                        symbol: windowState.isFullScreen ? "arrow.down.right.and.arrow.up.left" : "arrow.up.left.and.arrow.down.right",
                         label: "Toggle full screen"
                     ) {
                         Platform.toggleFullScreen()
@@ -148,8 +151,14 @@ struct StreamView: View {
 #endif
                 }
             }
+#if os(macOS)
+            .padding(.leading, 20 + windowState.leadingInset)
+            .padding(.trailing, 20)
+            .padding(.top, 12)
+#else
             .padding(.horizontal, 28)
             .padding(.top, 22)
+#endif
 
             Spacer()
 

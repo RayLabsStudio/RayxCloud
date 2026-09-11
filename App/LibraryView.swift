@@ -14,6 +14,9 @@ struct LibraryView: View {
     @State private var query = ""
     @State private var selectedTitle: CloudLibraryItem?
     @State private var filter = LibraryFilter()
+#if os(macOS)
+    private var windowState: MacWindowState { MacWindowState.shared }
+#endif
 
     private let columns = [GridItem(.adaptive(minimum: 120, maximum: 160), spacing: 12)]
 
@@ -107,21 +110,15 @@ struct LibraryView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbarBackground(.black, for: .navigationBar)
 #endif
+#if os(iOS)
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
-                    Menu {
-                        Button("Refresh library") {
-                            Task { await libraryController.refresh(forceRefresh: true, reason: .manualUser) }
-                        }
-                        Button("Sign out", role: .destructive) {
-                            Task { await sessionController.signOut() }
-                        }
-                    } label: {
-                        RoundIcon(symbol: "person.fill", tint: .green, size: 34)
-                    }
-                    .iconMenuStyle()
+                    profileMenu
                 }
             }
+#else
+            .toolbar(.hidden, for: .windowToolbar)
+#endif
         }
         .tint(.green)
 #if os(iOS)
@@ -169,10 +166,35 @@ extension LibraryView {
             .capsuleGlass()
 
             filterMenu
+#if os(macOS)
+            profileMenu
+#endif
         }
+#if os(macOS)
+        .padding(.leading, 16 + windowState.leadingInset)
+        .padding(.trailing, 16)
+        .padding(.top, 12)
+        .padding(.bottom, 10)
+#else
         .padding(.horizontal, 16)
         .padding(.vertical, 10)
+#endif
         .background(Color.black)
+    }
+
+    private var profileMenu: some View {
+        Menu {
+            Button("Refresh library") {
+                Task { await libraryController.refresh(forceRefresh: true, reason: .manualUser) }
+            }
+            Button("Sign out", role: .destructive) {
+                Task { await sessionController.signOut() }
+            }
+        } label: {
+            RoundIcon(symbol: "person.fill", tint: .green, size: 40)
+        }
+        .iconMenuStyle()
+        .accessibilityLabel("Account")
     }
 
     private var filterMenu: some View {

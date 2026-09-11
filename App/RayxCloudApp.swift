@@ -34,6 +34,7 @@ struct RayxCloudApp: App {
         }
 #if os(macOS)
         .defaultSize(width: 1280, height: 800)
+        .windowStyle(.hiddenTitleBar)
 #endif
     }
 }
