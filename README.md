@@ -7,8 +7,14 @@ It exists for one reason: on iOS the only official way to play xCloud is Safari,
 You build it yourself with Xcode and install it on your own device with your own Apple developer account. There is no App Store listing, no prebuilt download, and no signing service.
 
 <p>
-  <img src="Docs/Screenshots/library.png" alt="Game Pass library grid with search and filter" width="48%">
-  <img src="Docs/Screenshots/launching.png" alt="Launching Forza Horizon 6" width="48%">
+  <img src="Docs/Screenshots/mac-home.png" alt="Mac home screen with Jump back in, Buy and Stream, and Recently Added shelves" width="100%">
+</p>
+<p>
+  <img src="Docs/Screenshots/mac-launching.png" alt="Mac launching Forza Horizon 6 full screen" width="49%">
+  <img src="Docs/Screenshots/launching.png" alt="iPhone launching Forza Horizon 6" width="49%">
+</p>
+<p>
+  <img src="Docs/Screenshots/library.png" alt="iPhone Game Pass library grid with search and filter" width="49%">
 </p>
 
 ## Disclaimer
