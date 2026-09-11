@@ -52,9 +52,9 @@ struct StreamHUD: View {
         }
         .font(.caption.monospacedDigit().weight(.semibold))
         .foregroundStyle(.white)
-        .padding(.horizontal, 14)
-        .padding(.vertical, 8)
-        .background(.black.opacity(0.6), in: Capsule())
+        .padding(.horizontal, 16)
+        .padding(.vertical, 9)
+        .capsuleGlass(fallback: .black.opacity(0.6))
         .animation(.easeInOut(duration: 0.3), value: stats.roundTripTimeMs)
     }
 

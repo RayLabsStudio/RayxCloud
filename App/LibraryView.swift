@@ -117,8 +117,9 @@ struct LibraryView: View {
                             Task { await sessionController.signOut() }
                         }
                     } label: {
-                        Image(systemName: "person.crop.circle")
+                        RoundIcon(symbol: "person.fill", tint: .green, size: 34)
                     }
+                    .iconMenuStyle()
                 }
             }
         }
@@ -163,9 +164,9 @@ extension LibraryView {
                     .buttonStyle(.plain)
                 }
             }
-            .padding(.horizontal, 12)
+            .padding(.horizontal, 14)
             .padding(.vertical, 9)
-            .background(Color.white.opacity(0.1), in: RoundedRectangle(cornerRadius: 12, style: .continuous))
+            .capsuleGlass()
 
             filterMenu
         }
@@ -205,12 +206,9 @@ extension LibraryView {
                 }
             }
         } label: {
-            Image(systemName: filter.isActive ? "line.3.horizontal.decrease.circle.fill" : "line.3.horizontal.decrease.circle")
-                .font(.title2)
-                .foregroundStyle(filter.isActive ? .green : .white)
-                .frame(width: 40, height: 40)
-                .background(Color.white.opacity(0.1), in: RoundedRectangle(cornerRadius: 12, style: .continuous))
+            RoundIcon(symbol: "line.3.horizontal.decrease", tint: filter.isActive ? .green : .white)
         }
+        .iconMenuStyle()
         .accessibilityLabel("Filter games")
     }
 }

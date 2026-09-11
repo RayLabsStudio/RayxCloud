@@ -123,9 +123,9 @@ struct StreamView: View {
                     Text(item.name)
                         .font(.footnote.weight(.semibold))
                         .foregroundStyle(.white)
-                        .padding(.horizontal, 12)
-                        .padding(.vertical, 8)
-                        .background(.black.opacity(0.6), in: Capsule())
+                        .padding(.horizontal, 14)
+                        .padding(.vertical, 10)
+                        .capsuleGlass(fallback: .black.opacity(0.6))
 
                     Spacer()
 
@@ -167,12 +167,7 @@ struct StreamView: View {
 
     private func controlButton(symbol: String, label: String, tint: Color = .white, action: @escaping () -> Void) -> some View {
         Button(action: action) {
-            Image(systemName: symbol)
-                .font(.headline)
-                .frame(width: 20, height: 20)
-                .padding(12)
-                .background(.black.opacity(0.6), in: Circle())
-                .foregroundStyle(tint)
+            RoundIcon(symbol: symbol, tint: tint, size: 44)
         }
         .buttonStyle(.plain)
         .accessibilityLabel(label)
