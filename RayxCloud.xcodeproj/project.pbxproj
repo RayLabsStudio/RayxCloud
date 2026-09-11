@@ -51,12 +51,14 @@
 		DC73B5AF5EC765CB1BDBF161 /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE79277630A13A3AF9C6DB64 /* RemoteImage.swift */; };
 		DD5645E6B4D4FDE26D5D73CF /* HomeShelvesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA205AEC2662CCEBD061502A /* HomeShelvesView.swift */; };
 		DD62D77F6AC2002222B1EA1E /* WebRTCClientImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949B4D5393EFF25377946E09 /* WebRTCClientImpl.swift */; };
+		DED4FED37C82C5543B1590DA /* OrientationLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A3E3BEBA16546D7F07C3C9 /* OrientationLock.swift */; };
 		E0951A88532F563A1C20BC7C /* WebRTCClientImplAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D84224C09E8454A99D2FDB6 /* WebRTCClientImplAudio.swift */; };
 		E5AE53BA361CDE047CE18ADF /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766886C6F84F05CEA687DBD3 /* RootView.swift */; };
 		ECCA845DD51759395A00985F /* RayxCloudApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE00B7C78FEBD68F1A77EE49 /* RayxCloudApp.swift */; };
 		ED5AE0A279D6189B3F1EFACF /* StreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A1C620D77A30F9D5DB9A46 /* StreamView.swift */; };
 		EED13E5191C641379F9FFC65 /* WebRTCClientImplDataChannelDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE1CD074E1B57F7484C3FCA /* WebRTCClientImplDataChannelDelegateProxy.swift */; };
 		F2E92D96B41B057EBEFE4B76 /* StratixCore in Frameworks */ = {isa = PBXBuildFile; productRef = C8164A8F8B666F19FA9CC1DA /* StratixCore */; };
+		FDD3EC7DCBF76168840A06FB /* OrientationLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A3E3BEBA16546D7F07C3C9 /* OrientationLock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +89,7 @@
 		E96D9E360F611E973B4F4093 /* GlassStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassStyle.swift; sourceTree = "<group>"; };
 		EBB7DD373C3B59F0F0C880C9 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		F5E7EB61E0E76225FC2DDC83 /* GameTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTile.swift; sourceTree = "<group>"; };
+		F6A3E3BEBA16546D7F07C3C9 /* OrientationLock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrientationLock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +172,7 @@
 				E96D9E360F611E973B4F4093 /* GlassStyle.swift */,
 				CA205AEC2662CCEBD061502A /* HomeShelvesView.swift */,
 				7D5D91209603C54B4A3D7B79 /* LibraryView.swift */,
+				F6A3E3BEBA16546D7F07C3C9 /* OrientationLock.swift */,
 				5EC0394C00E8595CBEBEDB4D /* Platform.swift */,
 				082E9BD3631C051B664EC444 /* RayxCloud-macOS.entitlements */,
 				DE00B7C78FEBD68F1A77EE49 /* RayxCloudApp.swift */,
@@ -301,6 +305,7 @@
 				78C694712BD257D36A4D7E5E /* GlassStyle.swift in Sources */,
 				C17926E2544F2F763243C7C2 /* HomeShelvesView.swift in Sources */,
 				0E7905E26E003B45B4558E81 /* LibraryView.swift in Sources */,
+				DED4FED37C82C5543B1590DA /* OrientationLock.swift in Sources */,
 				966B932C625A7DCD7950268D /* Platform.swift in Sources */,
 				CE513F4D0867FED3EEE0E244 /* RayxCloudApp.swift in Sources */,
 				DC73B5AF5EC765CB1BDBF161 /* RemoteImage.swift in Sources */,
@@ -330,6 +335,7 @@
 				A24FE48A7F4AA3B1D14089BF /* GlassStyle.swift in Sources */,
 				DD5645E6B4D4FDE26D5D73CF /* HomeShelvesView.swift in Sources */,
 				1D97014E6E887D6351B954FE /* LibraryView.swift in Sources */,
+				FDD3EC7DCBF76168840A06FB /* OrientationLock.swift in Sources */,
 				449AF4AF95A87AC5D7E17801 /* Platform.swift in Sources */,
 				ECCA845DD51759395A00985F /* RayxCloudApp.swift in Sources */,
 				B7F38081C3E5EC838DC4E505 /* RemoteImage.swift in Sources */,
@@ -363,7 +369,6 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				INFOPLIST_FILE = App/Info.plist;
-				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -498,7 +503,6 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				INFOPLIST_FILE = App/Info.plist;
-				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

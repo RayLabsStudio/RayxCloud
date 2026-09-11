@@ -37,12 +37,14 @@ targets:
         LSApplicationCategoryType: public.app-category.games
         UILaunchScreen: {}
         UIRequiresFullScreen: true
-        UIStatusBarHidden: true
-        UIViewControllerBasedStatusBarAppearance: false
+        UIViewControllerBasedStatusBarAppearance: true
         UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
           - UIInterfaceOrientationLandscapeLeft
           - UIInterfaceOrientationLandscapeRight
         UISupportedInterfaceOrientations~ipad:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationPortraitUpsideDown
           - UIInterfaceOrientationLandscapeLeft
           - UIInterfaceOrientationLandscapeRight
         GCSupportsGameMode: true
@@ -67,7 +69,6 @@ targets:
         ENABLE_USER_SCRIPT_SANDBOXING: false
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
-        INFOPLIST_KEY_UIRequiresFullScreen: true
         SUPPORTS_MACCATALYST: false
       configs:
         Debug:

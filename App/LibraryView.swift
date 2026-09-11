@@ -40,6 +40,10 @@ struct LibraryView: View {
             result.append(GameShelf(id: "mru", title: "Jump back in", items: recent))
         }
         for row in libraryController.homeMerchandising?.rows ?? [] where !row.items.isEmpty {
+            // "Buy and Stream" is the whole streamable catalog, which the All games grid already covers.
+            if row.label.localizedCaseInsensitiveContains("buy") || row.alias.localizedCaseInsensitiveContains("buy") {
+                continue
+            }
             result.append(GameShelf(id: row.alias, title: row.label, items: row.items))
         }
         return result
@@ -86,7 +90,7 @@ struct LibraryView: View {
     }
 
     var body: some View {
-        NavigationStack {
+        ZStack {
             Group {
                 if isInitialLoad {
                     VStack(spacing: 12) {
@@ -139,17 +143,8 @@ struct LibraryView: View {
                 }
             }
             .background(Color.black)
-#if os(iOS)
-            .navigationTitle("Game Pass")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbarBackground(.black, for: .navigationBar)
-            .toolbar {
-                ToolbarItem(placement: .primaryAction) {
-                    profileMenu
-                }
-            }
-#endif
         }
+        .background(Color.black.ignoresSafeArea())
         .tint(.green)
 #if os(iOS)
         .fullScreenCover(item: $selectedTitle) { item in
@@ -209,9 +204,7 @@ extension LibraryView {
             .capsuleGlass()
 
             filterMenu
-#if os(macOS)
             profileMenu
-#endif
         }
 #if os(macOS)
         .padding(.leading, 16 + windowState.leadingInset)
@@ -220,9 +213,11 @@ extension LibraryView {
         .padding(.bottom, 10)
 #else
         .padding(.horizontal, 16)
-        .padding(.vertical, 10)
+        .padding(.top, 6)
+        .padding(.bottom, 10)
 #endif
-        .background(Color.black)
+        .background(.ultraThinMaterial)
+        .background(Color.black.opacity(0.6))
     }
 
     private var profileMenu: some View {

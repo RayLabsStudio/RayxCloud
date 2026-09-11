@@ -7,6 +7,9 @@ import StratixCore
 
 @main
 struct RayxCloudApp: App {
+#if os(iOS)
+    @UIApplicationDelegateAdaptor(RayxCloudAppDelegate.self) private var appDelegate
+#endif
     @State private var coordinator = AppCoordinator()
     @Environment(\.scenePhase) private var scenePhase
 

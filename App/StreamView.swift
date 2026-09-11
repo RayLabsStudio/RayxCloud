@@ -63,6 +63,9 @@ struct StreamView: View {
         .persistentSystemOverlays(.hidden)
 #if os(iOS)
         .statusBarHidden(true)
+        .onAppear {
+            OrientationLock.set(.landscape)
+        }
 #endif
         .contentShape(Rectangle())
         .onTapGesture {
@@ -261,6 +264,9 @@ struct StreamView: View {
 
     private func teardown() {
         hideControlsTask?.cancel()
+#if os(iOS)
+        OrientationLock.set(.all)
+#endif
         session?.onVideoTrack = nil
         videoTrack = nil
         attachedSessionID = nil
